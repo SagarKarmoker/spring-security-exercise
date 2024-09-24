@@ -1,5 +1,6 @@
-package com.sagar.springSecurityExample;
+package com.sagar.springSecurityExample.service;
 
+import com.sagar.springSecurityExample.model.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
