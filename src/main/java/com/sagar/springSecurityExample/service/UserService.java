@@ -16,6 +16,9 @@ public class UserService {
     private UserRepo userRepo;
 
     @Autowired
+    private JWTService jwtService;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     // place here or at security config
@@ -32,7 +35,7 @@ public class UserService {
                 authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
         if(authentication.isAuthenticated()){
-            return "success";
+            return jwtService.generateToken(user.getUsername());
         }
         return "fail";
     }
